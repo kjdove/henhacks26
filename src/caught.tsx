@@ -1,5 +1,8 @@
 import './caught.css';
 import {useNavigate} from 'react-router-dom';
+import Bandits from './Bandits';
+import {type Bandit} from "./App";
+import { BanditCard } from "./BanditCard";
 
 export function Caught() {
     const navigate = useNavigate();
@@ -47,6 +50,11 @@ export function Caught() {
            </div>
             <div className='caught-content'>
                 <h2>Caught Bandits</h2>
+                <div className='bandit-list'>
+                    {Bandits.filter((bandit: Bandit) => bandit.Status === "Caught").map((bandit: Bandit) => (
+                        <BanditCard key={bandit.Name} bandit={bandit} />
+                    ))}
+                </div>
             </div>
             
         </>
