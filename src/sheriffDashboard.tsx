@@ -1,12 +1,12 @@
 import './sheriffDashboard.css';
 import {useNavigate} from 'react-router-dom';
-import type { Bandit } from './App';
+// import type { Bandit } from './App';
 
-interface BanditProps {
-    bandit:Bandit[]
-    setList:React.Dispatch<React.SetStateAction<Bandit[]>>;
-}
-export function SheriffDashboard({bandit, setList}:BanditProps):React.JSX.Element{
+// interface BanditProps {
+//     bandit:Bandit[]
+//     setList:React.Dispatch<React.SetStateAction<Bandit[]>>;
+// }
+export function SheriffDashboard():React.JSX.Element{
     const navigate = useNavigate();
 
     return (

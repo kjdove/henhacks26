@@ -1,69 +1,47 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import Bandits from "./Bandits";
-import { initializeBandits } from "./main";
-import { PublicDashboard } from "./publicDashboard";
-import { SheriffDashboard } from "./sheriffDashboard";
 import "./App.css";
-
-
-export interface Bandit {
-    Name: string;
-    Location: string;
-    threatLevel: number;
-    Description: string;
-    Status: "Wanted" | "Caught";
-    Photo: string;
-}
 
 
 
 
 export function App (){
     const [user, setUser]=useState<string>("");
-    const [password, /*setPassword*/]=useState<string>("");
-    const [isSheriff, setIsSheriff] = useState<number>(0);
-    const [bandits, setBandits] = useState<Bandit[]>(() => {
-    const saved = localStorage.getItem("bandits");
-    return saved ? JSON.parse(saved) : [];
-  });
-
-
-  // Initialize if first visit
-  useEffect(() => {
-    initializeBandits();
-  }, []);
-
-
-  // Persist any changes automatically
-  useEffect(() => {
-    localStorage.setItem("bandits", JSON.stringify(bandits));
-  }, [bandits]);
-   
+    const [password, setPassword]=useState<string>("");
+    const [isSheriff, setIsSheriff] = useState<boolean>(true);
+    
     //updates isStudent to switch the view from student to teacher
     function updateUser(event: React.ChangeEvent<HTMLInputElement>) {
-   
+    
     setUser(event.target.value);
 
-
-   
-}
-function login(){
     if (user.startsWith("Sheriff")) {
-        setIsSheriff(1);
+        setIsSheriff(true);
     } else {
-        setIsSheriff(2);
+        setIsSheriff(false);
     }
 }
 
-if(isSheriff==0){
+    function updatePassword(event: React.ChangeEvent<HTMLInputElement>){
+        setPassword(event.target.value);
+    }
+     const navigate = useNavigate();
+        function handleLogin() {
+    if (isSheriff) {
+        navigate("/sheriffDashboard");
+    } else {
+        navigate("/publicDashboard");
+    }
+}
+
+
     return (
         <div className='login-page'>
            <div className="logo-header">
                 <div className='logo'>
-                    <h1>Bandit Board</h1>
+                    <h1>Logo Placeholder</h1>
                 </div>
            </div>
            <div className="login-content">
@@ -76,7 +54,7 @@ if(isSheriff==0){
                     <Form.Group controlId="formPassword">
                         <span>
                         <Form.Label style = {{fontWeight: "bold"}}>Password:</Form.Label>
-                        <Form.Control type = "password" value={password} placeholder="Enter password" /></span>
+                        <Form.Control type = "password" value={password} onChange={updatePassword} placeholder="Enter password" /></span>
                     </Form.Group>
                     <div>
                     <span>
@@ -90,31 +68,15 @@ if(isSheriff==0){
                                 checked={isStudent}
                                 onChange={updateIsStudent}
                                 style = {{width: "200px", height: "50px"}}
-                            />
+                            /> 
                         </Form>*/}
                     </div>
                     </span>
                 </div>
-                <Button onClick={login}>Login</Button> 
+                <Button variant="success" onClick={handleLogin}>
+                    Login
+                </Button>
            </div>
-                    
         </div>
     )
-}else if(isSheriff==2){
-    return(
-        <PublicDashboard
-        bandit={bandits}
-       
-        />
-    )
-}
-else{
-    return(
-        <SheriffDashboard
-        bandit = {bandits}
-        setList = {setBandits}
-        />
-    )
-}
-   
 }

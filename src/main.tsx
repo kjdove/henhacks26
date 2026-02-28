@@ -1,7 +1,7 @@
-import { StrictMode, type SetStateAction } from 'react'
+import { StrictMode, /*type SetStateAction*/ } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import {App, type Bandit} from './App.tsx'
+import {App, /*type Bandit*/} from './App.tsx'
 import {SheriffDashboard} from './sheriffDashboard.tsx'
 import {HashRouter, Route, Routes} from "react-router-dom";
 import { PublicDashboard } from './publicDashboard.tsx'
@@ -22,12 +22,8 @@ createRoot(document.getElementById('root')!).render(
     <HashRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/SheriffDashboard" element={<SheriffDashboard bandit={[]} setList={function (value: SetStateAction<Bandit[]>): void {
-          throw new Error('Function not implemented.')
-        } }/>}/>
-        <Route path="/PublicDashboard" element={<PublicDashboard bandit={[]} setList={function (value: SetStateAction<Bandit[]>): void {
-          throw new Error('Function not implemented.')
-        } }/>}/>
+        <Route path="/SheriffDashboard" element={<SheriffDashboard/>}/>
+        <Route path="/PublicDashboard" element={<PublicDashboard />}/>
         <Route path="/SheriffDashboard/Wanted" element={<Wanted/>}/>
         <Route path="/SheriffDashboard/Caught" element={<Caught/>}/>
         <Route path="/SheriffDashboard/Map" element={<Map/>}/>
