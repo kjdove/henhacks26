@@ -16,7 +16,7 @@ export interface Bandit {
 export function App (){
     const [user, setUser]=useState<string>("");
     const [password, setPassword]=useState<string>("");
-    const [isSheriff, setIsSheriff] = useState<boolean>(true);
+    const [isSheriff, setIsSheriff] = useState<boolean>(false);
     
     //updates isStudent to switch the view from student to teacher
     function updateUser(event: React.ChangeEvent<HTMLInputElement>) {
