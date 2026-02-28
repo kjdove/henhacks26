@@ -2,6 +2,8 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
 import './publicDashboard.css';
+import { useDashboardNavigation } from './navigation';
+
 
 // import type { Bandit } from './App';
 
@@ -11,17 +13,18 @@ import './publicDashboard.css';
 
 export function PublicDashboard(): React.JSX.Element {
     const navigate = useNavigate();
+    const { goTo } = useDashboardNavigation();
 
     return (
         <div className='sd-container'>
         <div className = "page-header">
              <div className='left'>
-                 <h1 onClick={() => navigate(`/PublicDashboard`)}>Bandit Board</h1>
+                 <h1 onClick={()=>goTo()}>Bandit Board</h1>
              </div>
              <div className='right'>
-                 <h3 onClick={() => navigate(`/PublicDashboard/Wanted`)}>wanted</h3>
-                 <h3 onClick={() => navigate(`/PublicDashboard/Caught`)}>caught</h3>
-                 <h3 onClick={() => navigate(`/PublicDashboard/Map`)}>map</h3>
+                 <h3 onClick={()=>goTo("/Wanted")}>wanted</h3>
+                 <h3 onClick={()=>goTo("/Caught")}>caught</h3>
+                 <h3 onClick={()=>goTo("/Map")}>map</h3>
              </div>
              <p className= 'logout' onClick={() => navigate(`/`)}>Logout</p>
         </div>
