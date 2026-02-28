@@ -1,26 +1,73 @@
-// import { useState } from 'react'
-import './App.css'
-import {useNavigate} from 'react-router-dom';
 
-export interface Bandit {
-  name: string;
-  description: string;
-  threatLevel: number;
-  status: 'active' | 'archived';
-  location: string;
-  photo: string;
+import React, { useState } from "react";
+import Form from "react-bootstrap/Form";
+import { useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
+
+
+export function LoginPage (){
+    const [user, setUser]=useState<string>("");
+    const [password, setPassword]=useState<string>("");
+    const [isStudent, setIsStudent] = useState<boolean>(true);
+    
+    //updates isStudent to switch the view from student to teacher
+    function updateUser(event: React.ChangeEvent<HTMLInputElement>){
+        setUser(event.target.value);
+        if (user.startsWith("Sheriff")){
+            setIsStudent(false)
+    } else{
+            setIsStudent(true)
+    }
+    }
+
+    function updatePassword(event: React.ChangeEvent<HTMLInputElement>){
+        setPassword(event.target.value);
+    }
+
+    function LoginButton (){
+        
+        
+
+        return (
+        <div>
+            <Button>Login</Button>
+        </div>
+    )
 }
 
-function App() {
-  const navigate = useNavigate();
-
-  return (
-    <>
-      <h1>Login Page</h1>
-      <p onClick={()=> navigate (`/SheriffDashboard`)}>Sheriff Dashboard</p>
-      <p onClick={()=> navigate (`/PublicDashboard`)}>Public Dashboard</p>
-    </>
-  )
+    return (
+        <div>
+            <hr></hr>
+            <div>Howdy Partner, Login Below</div>
+            <hr></hr>
+            <Form.Group controlId="formUser">
+                <span><Form.Label style = {{fontWeight: "bold"}}>Username:</Form.Label>
+                <Form.Control value={user} onChange={updateUser} placeholder="Enter username" /></span>
+            </Form.Group>
+            <Form.Group controlId="formPassword">
+                <span>
+                <Form.Label style = {{fontWeight: "bold"}}>Password:</Form.Label>
+                <Form.Control type = "password" value={password} onChange={updatePassword} placeholder="Enter password" /></span>
+            </Form.Group>
+            <hr></hr>
+            <div>
+            <span>
+            {/* <div></div> */}
+            <div style={{display: "flex", justifyContent: "center", alignItems: "center", marginTop: "10px"}}>
+                {/*<Form>
+                    <Form.Check
+                        type="switch"
+                        id="is-student-check"
+                        label={"Login as a: " + (isStudent? "Student": "Teacher")}
+                        checked={isStudent}
+                        onChange={updateIsStudent}
+                        style = {{width: "200px", height: "50px"}}
+                    /> 
+                </Form>*/}
+            </div>
+            </span>
+        </div>
+        <LoginButton></LoginButton>
+        </div>
+    )
 }
-
-export default App
