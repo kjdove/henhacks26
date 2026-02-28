@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
-
+import "./App.css";
 
 export interface Bandit {
 	Name: string;

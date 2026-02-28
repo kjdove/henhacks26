@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import type { Bandit } from "./App";
 import { App } from "./App";
+import "./App.css";
 
 export function Parent() {
     const [bandits] = useState<Bandit[]>(() => {
