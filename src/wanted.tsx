@@ -14,6 +14,7 @@ export function Wanted() {
                     <h3 onClick={() => navigate(`/SheriffDashboard/Caught`)}>caught</h3>
                     <h3 onClick={() => navigate(`/SheriffDashboard/Map`)}>map</h3>
                 </div>
+                <p onClick={() => navigate(`/`)}>Logout</p>
            </div>
             <h1>Wanted Page</h1>
             <p>Here you can view the list of wanted bandits and their details.</p>

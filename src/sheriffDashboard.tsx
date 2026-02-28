@@ -15,6 +15,7 @@ export function SheriffDashboard() {
                     <h3 onClick={() => navigate(`/SheriffDashboard/Caught`)}>caught</h3>
                     <h3 onClick={() => navigate(`/SheriffDashboard/Map`)}>map</h3>
                 </div>
+                <p className= 'logout' onClick={() => navigate(`/`)}>Logout</p>
            </div>
         </div>
     )
