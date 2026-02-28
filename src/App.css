@@ -40,3 +40,12 @@
     background-color: rgb(230, 119, 8);
     border: none;
 }
+
+.form-label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.form-control {
+    margin-bottom: 15px;
+}
