@@ -20,11 +20,11 @@ export interface Bandit {
 
 export function App (){
     const [user, setUser]=useState<string>("");
-    const [password]=useState<string>("");
+    const [password, setPassword]=useState<string>("");
     const [isSheriff, setIsSheriff] = useState<number>(0);
     const [bandits, setBandits] = useState<Bandit[]>(() => {
     const saved = localStorage.getItem("bandits");
-    return saved ? JSON.parse(saved) : [];
+    return saved ? JSON.parse(saved) : Bandits;
   });
 
   // Initialize if first visit
@@ -42,6 +42,9 @@ export function App (){
     
     setUser(event.target.value);
 
+    
+}
+function login(){
     if (user.startsWith("Sheriff")) {
         setIsSheriff(1);
     } else {
@@ -69,7 +72,7 @@ if(isSheriff==0){
                     <Form.Group controlId="formPassword">
                         <span>
                         <Form.Label style = {{fontWeight: "bold"}}>Password:</Form.Label>
-                        <Form.Control type = "password" value={password} onChange={updatePassword} placeholder="Enter password" /></span>
+                        <Form.Control type = "password" value={password} placeholder="Enter password" /></span>
                     </Form.Group>
                     <div>
                     <span>
@@ -89,9 +92,10 @@ if(isSheriff==0){
                     </span>
                 </div>
            </div>
+           <Button onClick={login}>LogIn</Button>           
         </div>
     )
-}else if(isSheriff==1){
+}else if(isSheriff==2){
     return(
         <PublicDashboard
         bandit={bandits}
