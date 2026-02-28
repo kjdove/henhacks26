@@ -37,11 +37,11 @@ export function App (){
     function LoginButton (){
         const navigate = useNavigate();
         if (isSheriff) {
-            navigate("/SheriffDashboard", {
+            navigate("/sheriffDashboard", {
                 state: { bandits, setBandits }
             });
         } else {
-            navigate("/PublicDashboard", {
+            navigate("/publicDashboard", {
                 state: { bandits }
             });
         }
