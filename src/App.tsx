@@ -2,6 +2,14 @@
 import './App.css'
 import {useNavigate} from 'react-router-dom';
 
+export interface Bandit {
+  name: string;
+  description: string;
+  threatLevel: number;
+  status: 'active' | 'archived';
+  location: string;
+  photo: string;
+}
 
 function App() {
   const navigate = useNavigate();
