@@ -44,11 +44,16 @@ export function App (){
 
     
 }
-function login(){
-    if (user.startsWith("Sheriff")) {
-        setIsSheriff(1);
+
+    function updatePassword(event: React.ChangeEvent<HTMLInputElement>){
+        setPassword(event.target.value);
+    }
+     const navigate = useNavigate();
+        function handleLogin() {
+    if (isSheriff) {
+        navigate("/SheriffDashboard");
     } else {
-        setIsSheriff(2);
+        navigate("/PublicDashboard");
     }
 }
 
