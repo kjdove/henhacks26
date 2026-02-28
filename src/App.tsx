@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
@@ -7,15 +6,19 @@ import Bandits from "./Bandits";
 import { initializeBandits } from "./main";
 import { PublicDashboard } from "./publicDashboard";
 import { SheriffDashboard } from "./sheriffDashboard";
+import "./App.css";
+
 
 export interface Bandit {
-	Name: string;
-	Location: string;
-	threatLevel: number;
-	Description: string;
-	Status: "Wanted" | "Caught";
-	Photo: string;
+    Name: string;
+    Location: string;
+    threatLevel: number;
+    Description: string;
+    Status: "Wanted" | "Caught";
+    Photo: string;
 }
+
+
 
 
 export function App (){
@@ -24,40 +27,40 @@ export function App (){
     const [isSheriff, setIsSheriff] = useState<number>(0);
     const [bandits, setBandits] = useState<Bandit[]>(() => {
     const saved = localStorage.getItem("bandits");
-    return saved ? JSON.parse(saved) : Bandits;
+    return saved ? JSON.parse(saved) : [];
   });
+
 
   // Initialize if first visit
   useEffect(() => {
     initializeBandits();
   }, []);
 
+
   // Persist any changes automatically
   useEffect(() => {
     localStorage.setItem("bandits", JSON.stringify(bandits));
   }, [bandits]);
-    
+   
     //updates isStudent to switch the view from student to teacher
     function updateUser(event: React.ChangeEvent<HTMLInputElement>) {
-    
+   
     setUser(event.target.value);
 
-    
-}
 
-    function updatePassword(event: React.ChangeEvent<HTMLInputElement>){
-        setPassword(event.target.value);
-    }
-     const navigate = useNavigate();
-        function handleLogin() {
-    if (isSheriff) {
-        navigate("/SheriffDashboard");
+   
+}
+function login(){
+    if (user.startsWith("Sheriff")) {
+        setIsSheriff(1);
     } else {
-        navigate("/PublicDashboard");
+        setIsSheriff(2);
     }
 }
 
-    
+
+   
+
 
 if(isSheriff==0){
     return (
@@ -91,20 +94,20 @@ if(isSheriff==0){
                                 checked={isStudent}
                                 onChange={updateIsStudent}
                                 style = {{width: "200px", height: "50px"}}
-                            /> 
+                            />
                         </Form>*/}
                     </div>
                     </span>
                 </div>
            </div>
-           <Button onClick={login}>LogIn</Button>           
+           <Button onClick={login}>LogIn</Button>          
         </div>
     )
 }else if(isSheriff==2){
     return(
         <PublicDashboard
         bandit={bandits}
-        setList={setBandits}
+       
         />
     )
 }
@@ -116,5 +119,5 @@ else{
         />
     )
 }
-    
+   
 }
