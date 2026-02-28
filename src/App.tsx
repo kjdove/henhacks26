@@ -1,35 +1,73 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import React, { useState } from "react";
+import Form from "react-bootstrap/Form";
+import { useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+export function LoginPage (){
+    const [user, setUser]=useState<string>("");
+    const [password, setPassword]=useState<string>("");
+    const [isStudent, setIsStudent] = useState<boolean>(true);
+    
+    //updates isStudent to switch the view from student to teacher
+    function updateUser(event: React.ChangeEvent<HTMLInputElement>){
+        setUser(event.target.value);
+        if (user.startsWith("Sheriff")){
+            setIsStudent(false)
+    } else{
+            setIsStudent(true)
+    }
+    }
+
+    function updatePassword(event: React.ChangeEvent<HTMLInputElement>){
+        setPassword(event.target.value);
+    }
+
+    function LoginButton (){
+        
+        
+
+        return (
+        <div>
+            <Button>Login</Button>
+        </div>
+    )
 }
 
-export default App
+    return (
+        <div>
+            <hr></hr>
+            <div>Howdy Partner, Login Below</div>
+            <hr></hr>
+            <Form.Group controlId="formUser">
+                <span><Form.Label style = {{fontWeight: "bold"}}>Username:</Form.Label>
+                <Form.Control value={user} onChange={updateUser} placeholder="Enter username" /></span>
+            </Form.Group>
+            <Form.Group controlId="formPassword">
+                <span>
+                <Form.Label style = {{fontWeight: "bold"}}>Password:</Form.Label>
+                <Form.Control type = "password" value={password} onChange={updatePassword} placeholder="Enter password" /></span>
+            </Form.Group>
+            <hr></hr>
+            <div>
+            <span>
+            {/* <div></div> */}
+            <div style={{display: "flex", justifyContent: "center", alignItems: "center", marginTop: "10px"}}>
+                {/*<Form>
+                    <Form.Check
+                        type="switch"
+                        id="is-student-check"
+                        label={"Login as a: " + (isStudent? "Student": "Teacher")}
+                        checked={isStudent}
+                        onChange={updateIsStudent}
+                        style = {{width: "200px", height: "50px"}}
+                    /> 
+                </Form>*/}
+            </div>
+            </span>
+        </div>
+        <LoginButton></LoginButton>
+        </div>
+    )
+}
