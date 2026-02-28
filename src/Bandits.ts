@@ -21,7 +21,7 @@ const Bandits: Bandit[] = [
     Status: "Wanted",
     Photo: "src/assets/yarrington_bandit.JPEG"
     },
-    {Name: "Natsy Nazim",
+    {Name: "Nasty Nazim",
     threatLevel: 3,
     Location: "Willard Hall",
     Description: "Nazim doesn’t chase chaos. Nazim plans it. If something oddly strategic happens… Nazim was three steps ahead. Prefers shadows, spreadsheets, and silent victories.",
