@@ -22,3 +22,10 @@
     );
     position: relative;
   }
+
+  .marquee_item {
+    /* position: absolute; */
+    inset-inline-start: var(--marquee-item-offset);
+    animation: go linear var(--marquee-duration) var(--marquee-delay, 0s) infinite;
+    transform: translateX(-50%);
+  }
