@@ -3,7 +3,13 @@ import React from 'react';
 import {useNavigate} from 'react-router-dom';
 import './publicDashboard.css';
 
-export function PublicDashboard(): React.JSX.Element {
+import type { Bandit } from './App';
+
+interface BanditProps {
+    bandit:Bandit[]
+}
+
+export function PublicDashboard({bandit}: BanditProps): React.JSX.Element {
     const navigate = useNavigate();
 
     return (

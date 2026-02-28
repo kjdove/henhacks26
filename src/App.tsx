@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import Bandits from "./Bandits";
 import { initializeBandits } from "./main";
@@ -23,7 +23,7 @@ export interface Bandit {
 
 export function App (){
     const [user, setUser]=useState<string>("");
-    const [password, setPassword]=useState<string>("");
+    const [password, /*setPassword*/]=useState<string>("");
     const [isSheriff, setIsSheriff] = useState<number>(0);
     const [bandits, setBandits] = useState<Bandit[]>(() => {
     const saved = localStorage.getItem("bandits");
@@ -57,10 +57,6 @@ function login(){
         setIsSheriff(2);
     }
 }
-
-
-   
-
 
 if(isSheriff==0){
     return (
@@ -99,8 +95,9 @@ if(isSheriff==0){
                     </div>
                     </span>
                 </div>
+                <Button onClick={login}>Login</Button> 
            </div>
-           <Button onClick={login}>LogIn</Button>          
+                    
         </div>
     )
 }else if(isSheriff==2){
