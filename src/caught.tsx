@@ -1,3 +1,4 @@
+import './caught.css';
 import {useNavigate} from 'react-router-dom';
 
 export function Caught() {
@@ -14,9 +15,12 @@ export function Caught() {
                     <h3 onClick={() => navigate(`/SheriffDashboard/Caught`)}>caught</h3>
                     <h3 onClick={() => navigate(`/SheriffDashboard/Map`)}>map</h3>
                 </div>
+                <p onClick={() => navigate(`/`)}>Logout</p>
            </div>
-            <h1>Caught Page</h1>
-            <p>Here you can view the list of caught bandits and their details.</p>
+            <div className='caught-content'>
+                <h2>Caught Bandits</h2>
+            </div>
+            
         </>
     )
 }

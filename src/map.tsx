@@ -14,6 +14,7 @@ export function Map () {
                     <h3 onClick={() => navigate(`/SheriffDashboard/Caught`)}>caught</h3>
                     <h3 onClick={() => navigate(`/SheriffDashboard/Map`)}>map</h3>
                 </div>
+                <p onClick={() => navigate(`/`)}>Logout</p>
            </div>
             <h1>Map Page</h1>
             <p>Here you can view the map of the area and track the locations of bandits and law enforcement.</p>

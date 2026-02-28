@@ -15,6 +15,11 @@ export function SheriffDashboard() {
                     <h3 onClick={() => navigate(`/SheriffDashboard/Caught`)}>caught</h3>
                     <h3 onClick={() => navigate(`/SheriffDashboard/Map`)}>map</h3>
                 </div>
+                <p className= 'logout' onClick={() => navigate(`/`)}>Logout</p>
+           </div>
+           <div className='sd-content'>
+                <h1>Welcome!</h1>
+                <p>Here you can manage your wanted and caught bandits, as well as view the map of the area.</p>
            </div>
         </div>
     )
