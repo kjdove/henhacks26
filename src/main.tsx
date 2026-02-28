@@ -1,7 +1,7 @@
-import { StrictMode } from 'react'
+import { StrictMode, type SetStateAction } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import {App} from './App.tsx'
+import {App, type Bandit} from './App.tsx'
 import {SheriffDashboard} from './sheriffDashboard.tsx'
 import {HashRouter, Route, Routes} from "react-router-dom";
 import { PublicDashboard } from './publicDashboard.tsx'
@@ -9,14 +9,25 @@ import { Wanted } from './wanted.tsx'
 import { Caught } from './caught.tsx'
 import { Map } from './map.tsx'
 
+import Bandits from './Bandits.ts'
+export function initializeBandits() {
+  const saved = localStorage.getItem("bandits");
+  if (!saved) {
+    localStorage.setItem("bandits", JSON.stringify(Bandits));
+  }
+}
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HashRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/SheriffDashboard" element={<SheriffDashboard/>}/>
-        <Route path="/PublicDashboard" element={<PublicDashboard/>}/>
+        <Route path="/SheriffDashboard" element={<SheriffDashboard bandit={[]} setList={function (value: SetStateAction<Bandit[]>): void {
+          throw new Error('Function not implemented.')
+        } }/>}/>
+        <Route path="/PublicDashboard" element={<PublicDashboard bandit={[]} setList={function (value: SetStateAction<Bandit[]>): void {
+          throw new Error('Function not implemented.')
+        } }/>}/>
         <Route path="/SheriffDashboard/Wanted" element={<Wanted/>}/>
         <Route path="/SheriffDashboard/Caught" element={<Caught/>}/>
         <Route path="/SheriffDashboard/Map" element={<Map/>}/>

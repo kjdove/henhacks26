@@ -1,9 +1,12 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import "./App.css";
+import Bandits from "./Bandits";
+import { initializeBandits } from "./main";
+import { PublicDashboard } from "./publicDashboard";
+import { SheriffDashboard } from "./sheriffDashboard";
 
 export interface Bandit {
 	Name: string;
@@ -18,25 +21,28 @@ export interface Bandit {
 export function App (){
     const [user, setUser]=useState<string>("");
     const [password, setPassword]=useState<string>("");
-    const [isSheriff, setIsSheriff] = useState<boolean>(true);
-    const [bandits] = useState<Bandit[]>(() => {
+    const [isSheriff, setIsSheriff] = useState<number>(0);
+    const [bandits, setBandits] = useState<Bandit[]>(() => {
     const saved = localStorage.getItem("bandits");
-    return saved ? JSON.parse(saved) : [];
-});
+    return saved ? JSON.parse(saved) : Bandits;
+  });
 
-useEffect(() => {
+  // Initialize if first visit
+  useEffect(() => {
+    initializeBandits();
+  }, []);
+
+  // Persist any changes automatically
+  useEffect(() => {
     localStorage.setItem("bandits", JSON.stringify(bandits));
-}, [bandits]);
+  }, [bandits]);
+    
     //updates isStudent to switch the view from student to teacher
     function updateUser(event: React.ChangeEvent<HTMLInputElement>) {
     
     setUser(event.target.value);
 
-    if (user.startsWith("Sheriff")) {
-        setIsSheriff(true);
-    } else {
-        setIsSheriff(false);
-    }
+    
 }
 
     function updatePassword(event: React.ChangeEvent<HTMLInputElement>){
@@ -51,7 +57,9 @@ useEffect(() => {
     }
 }
 
+    
 
+if(isSheriff==0){
     return (
         <div className='login-page'>
            <div className="logo-header">
@@ -69,7 +77,7 @@ useEffect(() => {
                     <Form.Group controlId="formPassword">
                         <span>
                         <Form.Label style = {{fontWeight: "bold"}}>Password:</Form.Label>
-                        <Form.Control type = "password" value={password} onChange={updatePassword} placeholder="Enter password" /></span>
+                        <Form.Control type = "password" value={password} placeholder="Enter password" /></span>
                     </Form.Group>
                     <div>
                     <span>
@@ -88,10 +96,25 @@ useEffect(() => {
                     </div>
                     </span>
                 </div>
-                <Button variant="success" onClick={handleLogin}>
-                    Login
-                </Button>
            </div>
+           <Button onClick={login}>LogIn</Button>           
         </div>
     )
+}else if(isSheriff==2){
+    return(
+        <PublicDashboard
+        bandit={bandits}
+        setList={setBandits}
+        />
+    )
+}
+else{
+    return(
+        <SheriffDashboard
+        bandit = {bandits}
+        setList = {setBandits}
+        />
+    )
+}
+    
 }
