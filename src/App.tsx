@@ -33,9 +33,9 @@ useEffect(() => {
     setUser(event.target.value);
 
     if (user.startsWith("Sheriff")) {
-        setIsSheriff(false);
-    } else {
         setIsSheriff(true);
+    } else {
+        setIsSheriff(false);
     }
 }
 
