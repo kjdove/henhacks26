@@ -1,0 +1,30 @@
+.sd-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+}
+
+.page-header .left {
+    flex: 1; /* Takes 1/3 of the space */
+}
+
+.page-header .right {
+    flex: 2; /* Takes 2/3 of the space */
+    display: flex;
+    justify-content: space-around; /* Evenly space the h3 elements */
+    align-items: center;
+}
