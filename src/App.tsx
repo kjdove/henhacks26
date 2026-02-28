@@ -1,32 +1,18 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import "./App.css";
 
 
-export interface Bandit {
-	Name: string;
-	Location: string;
-	threatLevel: number;
-	Description: string;
-	Status: "Wanted" | "Caught";
-	Photo: string;
-}
 
 
 export function App (){
     const [user, setUser]=useState<string>("");
     const [password, setPassword]=useState<string>("");
     const [isSheriff, setIsSheriff] = useState<boolean>(true);
-    const [bandits] = useState<Bandit[]>(() => {
-    const saved = localStorage.getItem("bandits");
-    return saved ? JSON.parse(saved) : [];
-});
-
-useEffect(() => {
-    localStorage.setItem("bandits", JSON.stringify(bandits));
-}, [bandits]);
+    
     //updates isStudent to switch the view from student to teacher
     function updateUser(event: React.ChangeEvent<HTMLInputElement>) {
     
