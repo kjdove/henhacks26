@@ -29,13 +29,13 @@ useEffect(() => {
 }, [bandits]);
     //updates isStudent to switch the view from student to teacher
     function updateUser(event: React.ChangeEvent<HTMLInputElement>) {
-    const value = event.target.value;
-    setUser(value);
+    
+    setUser(event.target.value);
 
-    if (value.startsWith("Sheriff")) {
-        setIsSheriff(true);
-    } else {
+    if (user.startsWith("Sheriff")) {
         setIsSheriff(false);
+    } else {
+        setIsSheriff(true);
     }
 }
 
@@ -47,9 +47,7 @@ useEffect(() => {
     if (isSheriff) {
         navigate("/sheriffDashboard");
     } else {
-        navigate("/publicDashboard", {
-            state: { bandits }
-        });
+        navigate("/publicDashboard");
     }
 }
 
