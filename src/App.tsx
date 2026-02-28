@@ -44,11 +44,11 @@ useEffect(() => {
     function LoginButton (){
         const navigate = useNavigate();
         if (isSheriff) {
-            navigate("/sheriffDashboard", {
+            navigate("/SheriffDashboard", {
                 state: { bandits, setBandits }
             });
         } else {
-            navigate("/publicDashboard", {
+            navigate("/PublicDashboard", {
                 state: { bandits }
             });
         }
