@@ -5,6 +5,9 @@ import App from './App.tsx'
 import {SheriffDashboard} from './sheriffDashboard.tsx'
 import {HashRouter, Route, Routes} from "react-router-dom";
 import { PublicDashboard } from './publicDashboard.tsx'
+import { Wanted } from './wanted.tsx'
+import { Caught } from './caught.tsx'
+import { Map } from './map.tsx'
 
 
 createRoot(document.getElementById('root')!).render(
@@ -14,7 +17,10 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/" element={<App />} />
         <Route path="/SheriffDashboard" element={<SheriffDashboard/>}/>
         <Route path="/PublicDashboard" element={<PublicDashboard/>}/>
+        <Route path="/SheriffDashboard/Wanted" element={<Wanted/>}/>
+        <Route path="/SheriffDashboard/Caught" element={<Caught/>}/>
+        <Route path="/SheriffDashboard/Map" element={<Map/>}/>
       </Routes>
     </HashRouter>
-  </StrictMode>,
+  </StrictMode>
 )
