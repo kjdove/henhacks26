@@ -1,22 +1,31 @@
 
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
-//import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+
+export interface Bandit {
+	Name: string;
+	Location: string;
+	threatLevel: number;
+	Description: string;
+	Status: "Wanted" | "Caught";
+	Photo: string;
+}
 
 
 export function App (){
     const [user, setUser]=useState<string>("");
     const [password, setPassword]=useState<string>("");
     const [isSheriff, setIsSheriff] = useState<boolean>(true);
-    
+    const [bandits, setBandits] = useState<Bandit[]>([])
     //updates isStudent to switch the view from student to teacher
     function updateUser(event: React.ChangeEvent<HTMLInputElement>){
         setUser(event.target.value);
         if (user.startsWith("Sheriff")){
-            setIsSheriff(false)
-    } else{
             setIsSheriff(true)
+    } else{
+            setIsSheriff(false)
     }
     }
 
@@ -25,18 +34,18 @@ export function App (){
     }
 
     function LoginButton (){
-        //const navigate = useNavigate();
-        //const directToPublicDashboard = () =>{void navigate('/PublicDashboard');};
-        //const directToSheriffDashboard = () =>{void navigate('/SheriffDashboard');};
-        
-        if (isSheriff){
-
+        const navigate = useNavigate();
+        if (isSheriff) {
+            navigate("/SheriffDashboard", {
+                state: { bandits, setBandits }
+            });
+        } else {
+            navigate("/PublicDashboard", {
+                state: { bandits }
+            });
         }
-        return (
-        <div>
-            <Button>Login</Button>
-        </div>
-    )
+        
+    
 }
 
     return (
@@ -71,7 +80,7 @@ export function App (){
             </div>
             </span>
         </div>
-        <LoginButton></LoginButton>
+        <Button onClick={LoginButton}>Login</Button>
         </div>
     )
 }
