@@ -1,11 +1,11 @@
 
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
-
+import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 
-export function LoginPage (){
+export function App (){
     const [user, setUser]=useState<string>("");
     const [password, setPassword]=useState<string>("");
     const [isSheriff, setIsSheriff] = useState<boolean>(true);
@@ -25,10 +25,12 @@ export function LoginPage (){
     }
 
     function LoginButton (){
-        
+        const navigate = useNavigate();
+        const directToPublicDashboard = () =>{void navigate('/publicDashboard');};
+        const directToSheriffDashboard = () =>{void navigate('/SheriffDashboard');};
         
         if (isSheriff){
-            
+
         }
         return (
         <div>
