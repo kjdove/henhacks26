@@ -45,9 +45,9 @@ useEffect(() => {
      const navigate = useNavigate();
         function handleLogin() {
     if (isSheriff) {
-        navigate("/sheriffDashboard");
+        navigate("/SheriffDashboard");
     } else {
-        navigate("/publicDashboard");
+        navigate("/PublicDashboard");
     }
 }
 
