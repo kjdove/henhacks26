@@ -1,22 +1,22 @@
 
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
-import { useNavigate } from "react-router-dom";
+
 import { Button } from "react-bootstrap";
 
 
 export function LoginPage (){
     const [user, setUser]=useState<string>("");
     const [password, setPassword]=useState<string>("");
-    const [isStudent, setIsStudent] = useState<boolean>(true);
+    const [isSheriff, setIsSheriff] = useState<boolean>(true);
     
     //updates isStudent to switch the view from student to teacher
     function updateUser(event: React.ChangeEvent<HTMLInputElement>){
         setUser(event.target.value);
         if (user.startsWith("Sheriff")){
-            setIsStudent(false)
+            setIsSheriff(false)
     } else{
-            setIsStudent(true)
+            setIsSheriff(true)
     }
     }
 
@@ -27,7 +27,9 @@ export function LoginPage (){
     function LoginButton (){
         
         
-
+        if (isSheriff){
+            
+        }
         return (
         <div>
             <Button>Login</Button>
