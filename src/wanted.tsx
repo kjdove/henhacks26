@@ -1,4 +1,5 @@
 import {useNavigate} from 'react-router-dom';
+import './wanted.css';
 
 export function Wanted() {
     const navigate = useNavigate();
@@ -16,8 +17,9 @@ export function Wanted() {
                 </div>
                 <p onClick={() => navigate(`/`)}>Logout</p>
            </div>
-            <h1>Wanted Page</h1>
-            <p>Here you can view the list of wanted bandits and their details.</p>
+            <div className='wanted-content'>
+                <h2>Wanted Bandits</h2>
+            </div>
         </>
     )
 }

@@ -17,6 +17,10 @@ export function SheriffDashboard() {
                 </div>
                 <p className= 'logout' onClick={() => navigate(`/`)}>Logout</p>
            </div>
+           <div className='sd-content'>
+                <h1>Welcome!</h1>
+                <p>Here you can manage your wanted and caught bandits, as well as view the map of the area.</p>
+           </div>
         </div>
     )
 }

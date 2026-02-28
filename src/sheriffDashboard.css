@@ -48,3 +48,7 @@
     justify-content: space-around; 
     align-items: center;
 }
+
+.sd-content h1 {
+    text-align: center;
+}
