@@ -88,7 +88,9 @@ useEffect(() => {
                     </div>
                     </span>
                 </div>
-                    <LoginButton></LoginButton>
+                <Button variant="success" onClick={handleLogin}>
+                    Login
+                </Button>
            </div>
         </div>
     )
