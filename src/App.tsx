@@ -56,7 +56,7 @@ useEffect(() => {
         <div className='login-page'>
            <div className="logo-header">
                 <div className='logo'>
-                    <h1>Logo Placeholder</h1>
+                    <h1>Bandit Board</h1>
                 </div>
            </div>
            <div className="login-content">
