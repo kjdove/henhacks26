@@ -4,8 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import "./App.css";
 
-
-
+export interface Bandit {
+	Name: string;
+	Location: string;
+	threatLevel: number;
+	Description: string;
+	Status: " wanted"  | " caught" ;
+	Photo: string;
+}
 
 export function App (){
     const [user, setUser]=useState<string>("");
