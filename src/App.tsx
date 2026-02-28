@@ -9,7 +9,7 @@ export interface Bandit {
 	Location: string;
 	threatLevel: number;
 	Description: string;
-	Status: " wanted"  | " caught" ;
+	Status: "Wanted"  | "Caught" ;
 	Photo: string;
 }
 
