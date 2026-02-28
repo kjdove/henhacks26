@@ -19,7 +19,7 @@ export function App (){
     const [user, setUser]=useState<string>("");
     const [password, setPassword]=useState<string>("");
     const [isSheriff, setIsSheriff] = useState<boolean>(true);
-    const [bandits, setBandits] = useState<Bandit[]>(() => {
+    const [bandits] = useState<Bandit[]>(() => {
     const saved = localStorage.getItem("bandits");
     return saved ? JSON.parse(saved) : [];
 });
@@ -28,33 +28,31 @@ useEffect(() => {
     localStorage.setItem("bandits", JSON.stringify(bandits));
 }, [bandits]);
     //updates isStudent to switch the view from student to teacher
-    function updateUser(event: React.ChangeEvent<HTMLInputElement>){
-        setUser(event.target.value);
-        if (user.startsWith("Sheriff")){
-            setIsSheriff(true)
-    } else{
-            setIsSheriff(false)
+    function updateUser(event: React.ChangeEvent<HTMLInputElement>) {
+    const value = event.target.value;
+    setUser(value);
+
+    if (value.startsWith("Sheriff")) {
+        setIsSheriff(true);
+    } else {
+        setIsSheriff(false);
     }
-    }
+}
 
     function updatePassword(event: React.ChangeEvent<HTMLInputElement>){
         setPassword(event.target.value);
     }
-
-    function LoginButton (){
-        const navigate = useNavigate();
-        if (isSheriff) {
-            navigate("/SheriffDashboard", {
-                state: { bandits, setBandits }
-            });
-        } else {
-            navigate("/PublicDashboard", {
-                state: { bandits }
-            });
-        }
-        
-    
+     const navigate = useNavigate();
+        function handleLogin() {
+    if (isSheriff) {
+        navigate("/sheriffDashboard");
+    } else {
+        navigate("/publicDashboard", {
+            state: { bandits }
+        });
+    }
 }
+
 
     return (
         <div>
@@ -88,7 +86,9 @@ useEffect(() => {
             </div>
             </span>
         </div>
-        <Button onClick={LoginButton}>Login</Button>
+        <Button variant="success" onClick={handleLogin}>
+    Login
+</Button>
         </div>
     )
 }
