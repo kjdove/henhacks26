@@ -8,15 +8,15 @@ import { Button } from "react-bootstrap";
 export function App (){
     const [user, setUser]=useState<string>("");
     const [password, setPassword]=useState<string>("");
-    const [isStudent, setIsStudent] = useState<boolean>(true);
+    const [isSheriff, setIsSheriff] = useState<boolean>(true);
     
     //updates isStudent to switch the view from student to teacher
     function updateUser(event: React.ChangeEvent<HTMLInputElement>){
         setUser(event.target.value);
         if (user.startsWith("Sheriff")){
-            setIsStudent(false)
+            setIsSheriff(false)
     } else{
-            setIsStudent(true)
+            setIsSheriff(true)
     }
     }
 
@@ -25,9 +25,13 @@ export function App (){
     }
 
     function LoginButton (){
+        const navigate = useNavigate();
+        const directToPublicDashboard = () =>{void navigate('/publicDashboard');};
+        const directToSheriffDashboard = () =>{void navigate('/SheriffDashboard');};
         
-        
+        if (isSheriff){
 
+        }
         return (
         <div>
             <Button>Login</Button>
