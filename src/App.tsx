@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 
@@ -25,9 +25,9 @@ export function App (){
     }
 
     function LoginButton (){
-        const navigate = useNavigate();
-        const directToPublicDashboard = () =>{void navigate('/publicDashboard');};
-        const directToSheriffDashboard = () =>{void navigate('/SheriffDashboard');};
+        //const navigate = useNavigate();
+        //const directToPublicDashboard = () =>{void navigate('/PublicDashboard');};
+        //const directToSheriffDashboard = () =>{void navigate('/SheriffDashboard');};
         
         if (isSheriff){
 
