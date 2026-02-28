@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
-
+import './App.css';
 
 export function App (){
     const [user, setUser]=useState<string>("");
@@ -40,38 +40,43 @@ export function App (){
 }
 
     return (
-        <div>
-            <hr></hr>
-            <div>Howdy Partner, Login Below</div>
-            <hr></hr>
-            <Form.Group controlId="formUser">
-                <span><Form.Label style = {{fontWeight: "bold"}}>Username:</Form.Label>
-                <Form.Control value={user} onChange={updateUser} placeholder="Enter username" /></span>
-            </Form.Group>
-            <Form.Group controlId="formPassword">
-                <span>
-                <Form.Label style = {{fontWeight: "bold"}}>Password:</Form.Label>
-                <Form.Control type = "password" value={password} onChange={updatePassword} placeholder="Enter password" /></span>
-            </Form.Group>
-            <hr></hr>
-            <div>
-            <span>
-            {/* <div></div> */}
-            <div style={{display: "flex", justifyContent: "center", alignItems: "center", marginTop: "10px"}}>
-                {/*<Form>
-                    <Form.Check
-                        type="switch"
-                        id="is-student-check"
-                        label={"Login as a: " + (isStudent? "Student": "Teacher")}
-                        checked={isStudent}
-                        onChange={updateIsStudent}
-                        style = {{width: "200px", height: "50px"}}
-                    /> 
-                </Form>*/}
-            </div>
-            </span>
-        </div>
-        <LoginButton></LoginButton>
+        <div className='login-page'>
+           <div className="logo-header">
+                <div className='logo'>
+                    <h1>Logo Placeholder</h1>
+                </div>
+           </div>
+           <div className="login-content">
+                <h3>Howdy Partner!</h3>
+                <h4> Login Below.</h4>
+                    <Form.Group controlId="formUser">
+                        <span><Form.Label style = {{fontWeight: "bold"}}>Username:</Form.Label>
+                        <Form.Control value={user} onChange={updateUser} placeholder="Enter username" /></span>
+                    </Form.Group>
+                    <Form.Group controlId="formPassword">
+                        <span>
+                        <Form.Label style = {{fontWeight: "bold"}}>Password:</Form.Label>
+                        <Form.Control type = "password" value={password} onChange={updatePassword} placeholder="Enter password" /></span>
+                    </Form.Group>
+                    <div>
+                    <span>
+                    {/* <div></div> */}
+                    <div style={{display: "flex", justifyContent: "center", alignItems: "center", marginTop: "10px"}}>
+                        {/*<Form>
+                            <Form.Check
+                                type="switch"
+                                id="is-student-check"
+                                label={"Login as a: " + (isStudent? "Student": "Teacher")}
+                                checked={isStudent}
+                                onChange={updateIsStudent}
+                                style = {{width: "200px", height: "50px"}}
+                            /> 
+                        </Form>*/}
+                    </div>
+                    </span>
+                </div>
+                    <LoginButton></LoginButton>
+           </div>
         </div>
     )
 }
