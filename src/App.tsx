@@ -1,17 +1,41 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import "./App.css";
+import Bandits from "./Bandits";
+import { initializeBandits } from "./main";
+import { PublicDashboard } from "./publicDashboard";
+import { SheriffDashboard } from "./sheriffDashboard";
 
-
+export interface Bandit {
+	Name: string;
+	Location: string;
+	threatLevel: number;
+	Description: string;
+	Status: "Wanted" | "Caught";
+	Photo: string;
+}
 
 
 export function App (){
     const [user, setUser]=useState<string>("");
-    const [password, setPassword]=useState<string>("");
-    const [isSheriff, setIsSheriff] = useState<boolean>(true);
+    const [password]=useState<string>("");
+    const [isSheriff, setIsSheriff] = useState<number>(0);
+    const [bandits, setBandits] = useState<Bandit[]>(() => {
+    const saved = localStorage.getItem("bandits");
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  // Initialize if first visit
+  useEffect(() => {
+    initializeBandits();
+  }, []);
+
+  // Persist any changes automatically
+  useEffect(() => {
+    localStorage.setItem("bandits", JSON.stringify(bandits));
+  }, [bandits]);
     
     //updates isStudent to switch the view from student to teacher
     function updateUser(event: React.ChangeEvent<HTMLInputElement>) {
@@ -19,30 +43,20 @@ export function App (){
     setUser(event.target.value);
 
     if (user.startsWith("Sheriff")) {
-        setIsSheriff(true);
+        setIsSheriff(1);
     } else {
-        setIsSheriff(false);
+        setIsSheriff(2);
     }
 }
 
-    function updatePassword(event: React.ChangeEvent<HTMLInputElement>){
-        setPassword(event.target.value);
-    }
-     const navigate = useNavigate();
-        function handleLogin() {
-    if (isSheriff) {
-        navigate("/sheriffDashboard");
-    } else {
-        navigate("/publicDashboard");
-    }
-}
+    
 
-
+if(isSheriff==0){
     return (
         <div className='login-page'>
            <div className="logo-header">
                 <div className='logo'>
-                    <h1>Logo Placeholder</h1>
+                    <h1>Bandit Board</h1>
                 </div>
            </div>
            <div className="login-content">
@@ -74,10 +88,24 @@ export function App (){
                     </div>
                     </span>
                 </div>
-                <Button variant="success" onClick={handleLogin}>
-                    Login
-                </Button>
            </div>
         </div>
     )
+}else if(isSheriff==1){
+    return(
+        <PublicDashboard
+        bandit={bandits}
+        setList={setBandits}
+        />
+    )
+}
+else{
+    return(
+        <SheriffDashboard
+        bandit = {bandits}
+        setList = {setBandits}
+        />
+    )
+}
+    
 }
