@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 
-export function LoginPage (){
+export function App (){
     const [user, setUser]=useState<string>("");
     const [password, setPassword]=useState<string>("");
     const [isStudent, setIsStudent] = useState<boolean>(true);
