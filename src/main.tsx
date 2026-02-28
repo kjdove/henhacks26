@@ -20,6 +20,9 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/SheriffDashboard/Wanted" element={<Wanted/>}/>
         <Route path="/SheriffDashboard/Caught" element={<Caught/>}/>
         <Route path="/SheriffDashboard/Map" element={<Map/>}/>
+        <Route path="/PublicDashboard/Wanted" element={<Wanted/>}/>
+        <Route path="/PublicDashboard/Caught" element={<Caught/>}/>
+        <Route path="/PublicDashboard/Map" element={<Map/>}/>
       </Routes>
     </HashRouter>
   </StrictMode>
