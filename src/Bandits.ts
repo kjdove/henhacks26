@@ -42,7 +42,7 @@ const Bandits: Bandit[] = [
         Location: "Lil Bob",
         Description: "Last seen in Lil Bob, Gym 2. Macho Matsap radiates “I could, but I won’t… unless.” Intimidating by posture alone. Known to claim entire spaces just by existing in them.",
         Status: "Caught",
-        Photo: "src/assets/matsap_bandit.JPEG"
+        Photo: "src/assets/mattsap_bandit.JPEG"
     },
     {
         Name: "Lucky Liao",
@@ -66,7 +66,7 @@ const Bandits: Bandit[] = [
         Location: "Smith Hall",
         Description: "Last seen in Smith Hall. Suspected corgi robber from the New Castle animal shelter. ",
         Status: "Caught",
-        Photo: "src/assets/bart_bandit.JPEG"
+        Photo: "src/assets/bart_bandit.png"
     }
 ]
 
