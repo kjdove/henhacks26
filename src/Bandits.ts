@@ -7,6 +7,7 @@ import {type Bandit} from "./App";
 	Status: "Wanted" | "Caught";
 	Photo: string; */
 
+    
 const Bandits: Bandit[] = [
     {Name: "Slick Silber", 
     threatLevel: 5, 
