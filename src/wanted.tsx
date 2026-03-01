@@ -8,7 +8,7 @@ import { AddBanditModal } from './AddBanditModal';
 
 import {getBandits} from "./banditService";
 import {createBandit} from "./banditService";
-
+import { useLocation } from "react-router-dom";
 
 
 export function Wanted() {
@@ -17,6 +17,11 @@ export function Wanted() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [bandits, setBandits] = useState<Bandit[]>([]);
 
+
+    const location = useLocation();
+    const isSheriff = location.pathname.includes("SheriffDashboard");
+    
+   
     useEffect(() => {
         (async () => {
             const data = await getBandits();
@@ -61,7 +66,14 @@ export function Wanted() {
             <div className='wanted-content'>
                 <div className='content-header'>
                     <h2>Wanted Bandits</h2>
-                    <button className='add-bandit-btn' onClick={() => setIsModalOpen(true)}>+ Add Bandit</button>
+                    {isSheriff && (
+                        <button 
+                            className='add-bandit-btn' 
+                            onClick={() => setIsModalOpen(true)}
+                        >
+                            + Add Bandit
+                        </button>
+                    )}
                 </div>
                 <div className='bandit-list'>
                     {wantedBandits.map((bandit: Bandit) => (
@@ -71,11 +83,12 @@ export function Wanted() {
                         
             </div>
 
+           {isSheriff &&  
             <AddBanditModal 
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
                 onSubmit={handleAddBandit}
-            />
+            />}
         </div>
     )
 }
