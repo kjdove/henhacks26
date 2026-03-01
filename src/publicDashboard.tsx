@@ -33,14 +33,14 @@ export function PublicDashboard(): React.JSX.Element {
              <p>Here you can view wanted and caught bandits in your area, as well as view a map of where they were last seen.</p>
              <div className='bandits'>
                 <figure className="marquee">
-                    <img className='marquee_item' src="src/assets/bart_bandit.png" width="200" height="200" alt="BartBandit"/>
-                    <img className='marquee_item' src="src/assets/kat_bandit.JPEG" width="200" height="200" alt="KatBandit"/>
-                    <img className='marquee_item' src="src/assets/liao_bandit.JPEG" width="200" height="200" alt="LiaoBandit"/>
-                    <img className='marquee_item' src="src/assets/mattsap_bandit.JPEG" width="200" height="200" alt="MattBandit"/>
-                    <img className='marquee_item' src= "src/assets/nazim_bandit.JPEG" width="200" height="200" alt= "NazimBandit"/>
-                    <img className='marquee_item' src="src/assets/roosen_bandit.JPEG" width="200" height="200" alt="RoosenBandit"/>
-                    <img className='marquee_item' src="src/assets/silber_bandit.JPEG" width="200" height="200" alt="SilberBandit"/>
-                    <img className='marquee_item' src="src/assets/yarrington_bandit.JPEG" width="200" height="200" alt="YarringtonBandit"/>
+                    <img className='marquee_item' src="./bart_bandit.png" width="200" height="200" alt="BartBandit"/>
+                    <img className='marquee_item' src="./kat_bandit.JPEG" width="200" height="200" alt="KatBandit"/>
+                    <img className='marquee_item' src="./liao_bandit.JPEG" width="200" height="200" alt="LiaoBandit"/>
+                    <img className='marquee_item' src="./mattsap_bandit.JPEG" width="200" height="200" alt="MattBandit"/>
+                    <img className='marquee_item' src= "./nazim_bandit.JPEG" width="200" height="200" alt= "NazimBandit"/>
+                    <img className='marquee_item' src="./roosen_bandit.JPEG" width="200" height="200" alt="RoosenBandit"/>
+                    <img className='marquee_item' src="./silber_bandit.JPEG" width="200" height="200" alt="SilberBandit"/>
+                    <img className='marquee_item' src="./yarrington_bandit.JPEG" width="200" height="200" alt="YarringtonBandit"/>
                 </figure>  
              </div>
         </div>
