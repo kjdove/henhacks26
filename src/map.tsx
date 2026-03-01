@@ -40,7 +40,7 @@ export function Map () {
             //Yarrington
             getDistanceFromLatLonInM(position.coords.latitude, position.coords.longitude, 39.680598580340494, -75.75312460543964);
             //Nazim
-            getDistanceFromLatLonInM(position.coords.latitude, position.coords.longitude, 39.683225631916144, -75.75432086681847)
+            getDistanceFromLatLonInM(position.coords.latitude, position.coords.longitude, 39.683735117804346, -75.75028041451377)
             //Roosen
             getDistanceFromLatLonInM(position.coords.latitude, position.coords.longitude, 39.67872793208491, -75.75058534787834)
             //Mattsap
