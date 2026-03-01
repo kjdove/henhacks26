@@ -56,6 +56,19 @@
     align-items: center;
 }
 
+.right h2 {
+    color: #282727;
+}
+
+
+.right p {
+    color: #282727;
+}
+
+.content header h2 {
+    color: #282727;
+}
+
 .sd-content h1 {
     text-align: center;
 }

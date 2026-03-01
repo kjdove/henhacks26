@@ -1,4 +1,4 @@
-import type { Bandit } from "./App";
+import type { Bandit } from "./Bandits";
 import "./BanditCard.css";
 
 interface BanditCardProps {
