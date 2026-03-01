@@ -1,16 +1,47 @@
 import './wanted.css';
-import Bandits from './Bandits';
-import {type Bandit} from "./App";
+import type {Bandit} from "./Bandits";
 import { BanditCard } from "./BanditCard";
 import { useDashboardNavigation } from './navigation';
 import { useNavigate} from 'react-router-dom';
+import { useState,useEffect } from 'react';
+import { AddBanditModal } from './AddBanditModal';
+
+import {getBandits} from "./banditService";
+import {createBandit} from "./banditService";
 
 
 
 export function Wanted() {
     const { goTo } = useDashboardNavigation();
     const navigate = useNavigate();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [bandits, setBandits] = useState<Bandit[]>([]);
 
+    useEffect(() => {
+        (async () => {
+            const data = await getBandits();
+            setBandits(data);
+        }) ();
+    }, []);
+
+    const wantedBandits = bandits.filter((b) => b.Status === "Wanted");
+
+    const handleAddBandit = async (banditData: {
+        Name: string;
+        threatLevel: number;
+        Location: string;
+        Description: string;
+        Photo: string;
+    }) => {
+        await createBandit({
+            ...banditData,
+            Status: "Wanted",
+            createdAt: Date.now(),
+        });  
+    
+        const updated = await getBandits();
+        setBandits(updated);    
+    };
 
     return (
         <>
@@ -26,14 +57,23 @@ export function Wanted() {
                 <p onClick={() => navigate(`/`)}>Logout</p>
            </div>
             <div className='wanted-content'>
-                <h2>Wanted Bandits</h2>
+                <div className='content-header'>
+                    <h2>Wanted Bandits</h2>
+                    <button className='add-bandit-btn' onClick={() => setIsModalOpen(true)}>+ Add Bandit</button>
+                </div>
                 <div className='bandit-list'>
-                    {Bandits.filter((bandit: Bandit) => bandit.Status === "Wanted").map((bandit: Bandit) => (
-                        <BanditCard key={bandit.Name} bandit={bandit} />
+                    {wantedBandits.map((bandit: Bandit) => (
+                        <BanditCard key={bandit.id} bandit={bandit} />
                     ))}
                 </div>
                         
             </div>
+
+            <AddBanditModal 
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                onSubmit={handleAddBandit}
+            />
         </>
     )
 }
