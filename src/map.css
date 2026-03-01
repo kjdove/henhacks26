@@ -1,10 +1,30 @@
-body {
-  /* Always set a background-color to be used if the image is unavailable */
-  background-color: #de8408; 
-
-  
+.map-container {
+  display: flex;
+  align-items: flex-start; /* aligns top edges */
+  gap: 20px;               /* space between text and image */
 }
 
-header{
-    background-color: aliceblue;
+.map-text {
+  max-width: 400px;        /* control text width */
+}
+
+.map-container img {
+  width: 1200px;
+  height: auto;
+}
+
+.outline-btn {
+  background-color: white; /* Button background is white or transparent */
+  color: #000000; /* Text color matches the border color */
+  border: 2px solid #e39d05; /* The outline effect using border property */
+  padding: 14px 28px; /* Space between text and border */
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px; /* Optional: rounded corners */
+}
+
+/* Hover effect */
+.outline-btn:hover {
+  background-color: #d2820a;
+  color: white; /* Text color changes on hover for contrast */
 }

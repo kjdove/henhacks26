@@ -94,17 +94,26 @@ navigator.geolocation.getCurrentPosition((position) => {
                 </div>
                 <p onClick={() => navigate(`/`)}>Logout</p>
            </div>
-            <h1>Map Page</h1>
-            <p>Here you can view the map of the area and track the locations of bandits and law enforcement.</p>
-            <img src="Map.jpg" alt="banditmap" height={800} width={1300}/>
-            <div>How can I find these evil criminals?
-               <Button onClick={() => GetLocation()}>Find out now!</Button>
-               <li>
-                {Distances.map((num:number, index:number)=> (
-                     <li key={index}>{num.toFixed(2)} miles</li>
-                ))}
-            </li>
-            </div>
+            <div className="map-container">
+  <div className="map-text">
+    <p>
+      Here you can view the map of the area and track the locations of bandits and law enforcement.
+    </p>
+
+    <div>
+      How can I find these evil criminals?
+      <Button className="outline-btn" onClick={() => GetLocation()}>Find out now!</Button>
+
+      <ul>
+        {Distances.map((num: number, index: number) => (
+          <li key={index}>{num.toFixed(2)} miles</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <img src="Map.jpg" alt="banditmap" />
+</div>
             
         </>
     )
