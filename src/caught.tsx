@@ -73,6 +73,6 @@ export function Caught() {
                 onClose={() => setIsModalOpen(false)}
                 onSubmit={handleAddBandit}
             />
-        </>
+        </div>
     )
 }

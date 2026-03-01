@@ -76,6 +76,6 @@ export function Wanted() {
                 onClose={() => setIsModalOpen(false)}
                 onSubmit={handleAddBandit}
             />
-        </>
+        </div>
     )
 }
