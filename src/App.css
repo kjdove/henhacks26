@@ -12,6 +12,9 @@
     align-items: center;
     width: 100vw;
 }
+.login-content {
+    color: black;
+}
 
 .logo h1{
     text-align: center;
