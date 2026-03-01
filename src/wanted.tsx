@@ -57,7 +57,7 @@ export function Wanted() {
 
                 </div>
                 <div className='right'>
-                    <h2 onClick={() => goTo("/Wanted")}>WANTED</h2>
+                    <h2 className="wanted" onClick={() => goTo("/Wanted")}>WANTED</h2>
                     <h2 onClick={() => goTo("/Caught")}>CAUGHT</h2>
                     <h2 onClick={() => goTo("/Map")}>MAP</h2>
                 </div>
@@ -65,7 +65,7 @@ export function Wanted() {
            </div>
             <div className='wanted-content'>
                 <div className='content-header'>
-                    <h2>Wanted Bandits</h2>
+                    {/* <h2>Wanted Bandits</h2> */}
                     {isSheriff && (
                         <button 
                             className='add-bandit-btn' 

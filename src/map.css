@@ -38,3 +38,10 @@ html, body {
   background-color: #d2820a;
   color: white; /* Text color changes on hover for contrast */
 }
+
+.right .map {
+  background-color: #b26513;
+  color: #efdac4;
+  padding: 10px;
+  border-radius: 0.5rem;
+}
