@@ -22,11 +22,11 @@ export function PublicDashboard(): React.JSX.Element {
                     <h1 onClick={()=>goTo()}>Bandit Board</h1>
                 </div>
                 <div className='right'>
-                    <h3 onClick={()=>goTo("/Wanted")}>wanted</h3>
-                    <h3 onClick={()=>goTo("/Caught")}>caught</h3>
-                    <h3 onClick={()=>goTo("/Map")}>map</h3>
+                    <h2 onClick={()=>goTo("/Wanted")}>WANTED</h2>
+                    <h2 onClick={()=>goTo("/Caught")}>CAUGHT</h2>
+                    <h2 onClick={()=>goTo("/Map")}>MAP</h2>
                 </div>
-                <p className= 'logout' onClick={() => navigate(`/`)}>Logout</p>
+                <p className= 'logout' onClick={() => navigate(`/`)}>LOGOUT</p>
             </div>
             <div className='pd-content'>
                 <h1>Welcome Public!</h1>
