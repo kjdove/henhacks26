@@ -1,0 +1,10 @@
+body {
+  /* Always set a background-color to be used if the image is unavailable */
+  background-color: #de8408; 
+
+  
+}
+
+header{
+    background-color: aliceblue;
+}
