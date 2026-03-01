@@ -19,7 +19,9 @@ export function PublicDashboard(): React.JSX.Element {
         <div className='pd-container'>
             <div className = "page-header">
                 <div className='left'>
-                    <h1 onClick={()=>goTo()}>Bandit Board</h1>
+                    {/* <h1 onClick={()=>goTo()}>Bandit Board</h1> */}
+                    <img onClick={() => goTo()} src="./bblogo.png" alt="BanditBoradLogo" height="150px" width="250px"/>
+
                 </div>
                 <div className='right'>
                     <h2 onClick={()=>goTo("/Wanted")}>WANTED</h2>
