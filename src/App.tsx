@@ -52,7 +52,6 @@ export function App (){
            </div>
            <div className="login-content">
                 <h3>Howdy Partner!</h3>
-                <h4> Login Below.</h4>
                     <Form.Group controlId="formUser">
                         <span><Form.Label style = {{fontWeight: "bold"}}>Username:</Form.Label>
                         <Form.Control value={user} onChange={updateUser} placeholder="Enter username" /></span>

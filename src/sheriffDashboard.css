@@ -45,6 +45,9 @@
     text-decoration: underline;
 }
 
+.page-header p {
+    color: rgb(56, 55, 55);
+}
 .page-header .left {
     flex: .5;
 }
