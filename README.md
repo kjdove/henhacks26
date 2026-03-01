@@ -1,73 +1,20 @@
-# React + TypeScript + Vite
+## Inspiration
+We were inspired by wanted boards in police stations. We wanted to simulate this so that sheriffs can keep an area safe by informing the public of wanted and caught bandits in their area. 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## What it does
+With our site, sheriffs can log onto a password protected page to add wanted and/or caught bandits to their corresponding pages. Additionally, townsfolk can log on and view these bandits. Both kinds of users have the ability to view a map that displays where bandits were last seen as well as see how close their current location is to the bandits. 
 
-Currently, two official plugins are available:
+## How we built it
+We used TypeScript and React to build the foundations of our site, Firestore from Firebase for our backend database, and Mozilla's Geolocation API to get user's current locations. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Challenges we ran into
+The first challenge we ran into was saving our data. We first wanted to use LocalStorage but we ran into difficulties so we all agreed to switch to a backend database instead. Additionally, we faced challenges with CSS, primarily rendering our images on the deployed site.  
 
-## React Compiler
+## Accomplishments that we're proud of
+We are proud of our site's creativity and design, team chemistry and work ethic, and how much we accomplished in 24 hours. Our proudest accomplishments are the scrollable images on the dashboards, the backend database, and implementing the Geolocation API. 
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## What we learned
+We learned how to utilize CSS to make our site more aesthetically and visually pleasing and how to implement APIs and a backend databases in our codebase.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## What's next for Bandit Board
+For our future implementations, we want the public to be able to upvote/downvote wanted bandits so they'd be able to adjust their threat levels. This way, sheriffs would arrest the bandits that the public is most threatened by and a ' judge by a jury of peers' would be implemented for the bandits. Another implementation is to have an interactive map. We want users to be able to click on a bandit's image on the map and then their bandit info card would display. Lastly, we want sheriffs to be able to to manage the status of bandits. 
