@@ -11,17 +11,19 @@ export function Caught() {
     const { goTo } = useDashboardNavigation();
 
     return (
-        <>
-           <div className = "page-header">
+      <div className='caught-container'>
+        <div className = "page-header">
                 <div className='left'>
-                    <h1 onClick={()=>goTo()}>Bandit Board</h1>
+                    {/* <h1 onClick={()=>goTo()}>Bandit Board</h1> */}
+                    <img onClick={() => goTo()} src="./bblogo.png" alt="BanditBoradLogo" height="150px" width="250px"/>
+
                 </div>
                 <div className='right'>
-                    <h3 onClick={()=>goTo("/Wanted")}>wanted</h3>
-                    <h3 onClick={()=>goTo("/Caught")}>caught</h3>
-                    <h3 onClick={()=>goTo("/Map")}>map</h3>
+                    <h2 onClick={()=>goTo("/Wanted")}>WANTED</h2>
+                    <h2 onClick={()=>goTo("/Caught")}>CAUGHT</h2>
+                    <h2 onClick={()=>goTo("/Map")}>MAP</h2>
                 </div>
-                <p onClick={() => navigate(`/`)}>Logout</p>
+                <p onClick={() => navigate(`/`)}>LOGOUT</p>
            </div>
             <div className='caught-content'>
                 <h2>Caught Bandits</h2>
@@ -31,7 +33,6 @@ export function Caught() {
                     ))}
                 </div>
             </div>
-            
-        </>
+      </div>
     )
 }

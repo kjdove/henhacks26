@@ -47,7 +47,7 @@ export function App (){
         <div className='login-page'>
            <div className="logo-header">
                 <div className='logo'>
-                    <h1>Logo Placeholder</h1>
+                    <img src="./bblogo.png" alt="BanditBoardLogo"/>
                 </div>
            </div>
            <div className="login-content">
