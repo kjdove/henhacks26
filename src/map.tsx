@@ -7,34 +7,7 @@ import { useDashboardNavigation } from './navigation';
 export function Map () {
     const navigate = useNavigate();
 
-    const navigateDashboard = () => {
-        if (window.location.pathname.includes("SheriffDashboard")) {
-            navigate("/SheriffDashboard");
-        } else {
-            navigate("/PublicDashboard");
-        }
-    }
-    const navigateWanted = () => {
-        if (window.location.pathname.includes("SheriffDashboard")) {
-            navigate("/SheriffDashboard/Wanted");
-        } else {
-            navigate("/PublicDashboard/Wanted");
-        }
-    }
-    const navigateCaught = () => {
-        if (window.location.pathname.includes("SheriffDashboard")) {
-            navigate("/SheriffDashboard/Caught");
-        } else {
-            navigate("/PublicDashboard/Caught");
-        }
-    }
-    const navigateMap = () => {
-        if (window.location.pathname.includes("SheriffDashboard")) {
-            navigate("/SheriffDashboard/Map");
-        } else {
-            navigate("/PublicDashboard/Map");
-        }
-    }
+    
     const [Distances, setDistances] = useState<number[]>([]);
 
 function getDistanceFromLatLonInM(lat1:number,lon1:number,lat2:number,lon2:number) {
