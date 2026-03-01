@@ -1,7 +1,7 @@
 .sd-container{
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
     width: 100vw;
 }
 .sd-content {
@@ -10,7 +10,8 @@
     align-items: center;
     box-sizing: border-box;
     padding: 20px;
-    background-color: white;
+    background-color: #efdac4;
+    height: 100%;
 }
 .page-header {
     display: flex;
@@ -20,6 +21,7 @@
     padding: 10px;
     box-sizing: border-box;
     border-bottom: 1px solid #ccc;
+    background-color: #f0b06d;
 }
 .page-header img{
     cursor: pointer;

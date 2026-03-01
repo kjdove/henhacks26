@@ -11,8 +11,8 @@ export function Caught() {
     const { goTo } = useDashboardNavigation();
 
     return (
-        <>
-           <div className = "page-header">
+      <div className='caught-container'>
+        <div className = "page-header">
                 <div className='left'>
                     {/* <h1 onClick={()=>goTo()}>Bandit Board</h1> */}
                     <img onClick={() => goTo()} src="./bblogo.png" alt="BanditBoradLogo" height="150px" width="250px"/>
@@ -33,7 +33,6 @@ export function Caught() {
                     ))}
                 </div>
             </div>
-            
-        </>
+      </div>
     )
 }

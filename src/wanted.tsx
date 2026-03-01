@@ -13,8 +13,8 @@ export function Wanted() {
 
 
     return (
-        <>
-           <div className = "page-header">
+       <div className='wanted-container'>
+              <div className = "page-header">
                 <div className='left'>
                 {/* <h1 onClick={() => goTo()}>Bandit Board</h1> */}
                 <img onClick={() => goTo()} src="./bblogo.png" alt="BanditBoradLogo" height="150px" width="250px"/>
@@ -36,6 +36,6 @@ export function Wanted() {
                 </div>
                         
             </div>
-        </>
+       </div>
     )
 }

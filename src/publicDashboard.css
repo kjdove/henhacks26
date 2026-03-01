@@ -1,19 +1,18 @@
 .pd-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
     width: 100vw;
 }
-.page-header {
-    background-color: rgba(48, 154, 219, 0.641);
-}
+
 .pd-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
     padding: 20px;
-    background-color: white;
+    background-color: #efdac4;
+    height: 100%;
 }
  .marquee {
     display: flex;

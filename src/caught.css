@@ -1,6 +1,12 @@
 .caught-content h2 {
     text-align: center;
 }
+.caught-container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
 
 .bandit-list {
     display: flex;
@@ -8,4 +14,9 @@
     gap: 20px;
     padding: 20px;
     justify-content: center;
+}
+
+.caught-content {
+    background-color: #efdac4;
+    height: 100%;
 }
