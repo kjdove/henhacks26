@@ -28,8 +28,8 @@ export function SheriffDashboard():React.JSX.Element{
                 <p className= 'logout' onClick={() => navigate(`/`)}>Logout</p>
            </div>
            <div className='sd-content'>
-                <h1>Welcome!</h1>
-                <p>Here you can manage your wanted and caught bandits, as well as view the map of the area.</p>
+                <h1>Welcome Sheriffs!</h1>
+                <p>Here you can manage your wanted and caught bandits, as well as view the map of the area using the quick links above.</p>
                 <div className='bandits'>
                     <figure className="marquee">
                         <div className='marquee-track'>

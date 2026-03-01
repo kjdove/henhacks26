@@ -31,8 +31,8 @@ export function PublicDashboard(): React.JSX.Element {
                 <p className= 'logout' onClick={() => navigate(`/`)}>LOGOUT</p>
             </div>
             <div className='pd-content'>
-                <h1>Welcome Public!</h1>
-                <p>Here you can view wanted and caught bandits in your area, as well as view a map of where they were last seen.</p>
+                <h1>Welcome Townspeople!</h1>
+                <p>Here you can view wanted and caught bandits in your area, as well as view a map of where they were last seen using the quick links above.</p>
                 <div className='bandits'>
                     <figure className="marquee">
                         <div className='marquee-track'>
