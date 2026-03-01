@@ -1,4 +1,18 @@
-import {type Bandit} from "./App";
+export type BanditStatus = "Wanted" | "Caught";
+
+export type Bandit = {
+  id: string;              // Firestore doc id (we’ll set this when we read from DB)
+  Name: string;
+  Location: string;
+  threatLevel: number;
+  Description: string;
+  Status: BanditStatus;
+  Photo: string;
+  createdAt: number;       // for sorting newest first
+};
+
+// For creating new bandits (before Firestore assigns an id)
+export type NewBandit = Omit<Bandit, "id">;
 
 /**Name: string;
 	Location: string;
@@ -7,8 +21,8 @@ import {type Bandit} from "./App";
 	Status: "Wanted" | "Caught";
 	Photo: string; */
 
-    
-const Bandits: Bandit[] = [
+//bandits should come from firestore in the real app. this file becomes a seed list we can upload to firestore later
+export const SeedBandits: Omit<NewBandit, "createdAt">[] = [
     {Name: "Slick Silber", 
     threatLevel: 5, 
     Location: "Memorial Hall", 
@@ -71,4 +85,4 @@ const Bandits: Bandit[] = [
     }
 ]
 
-export default Bandits;
+export default SeedBandits;
