@@ -116,9 +116,9 @@ export function AddBanditModal({ isOpen, onClose, onSubmit }: AddBanditModalProp
           </div>
 
           <div className='form-group'>
-            <label htmlFor='Photo'>Photo URL</label>
+            <label htmlFor='Photo'>Photo Upload</label>
             <input
-              type='text'
+              type='file'
               id='Photo'
               name='Photo'
               value={formData.Photo}
