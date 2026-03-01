@@ -24,7 +24,7 @@ export function ModalForm({onClose, Distances}: ModalFormProps) {
                 <div className="modal-body">
                     <ul>
                         {Distances.map((num: number, index: number) => (
-                            <li key={index}>{names[index]} {num.toFixed(2)} miles away from you.</li>
+                            <li key={index}>{names[index]} <strong>{num.toFixed(2)}</strong> miles away from you.</li>
                         ))}
                     </ul>
                 </div>
