@@ -2,6 +2,8 @@ import {useNavigate} from 'react-router-dom';
 import "./map.css"
 import { Button } from 'react-bootstrap';
 import { useState } from 'react';
+import { useDashboardNavigation } from './navigation';
+
 export function Map () {
     const navigate = useNavigate();
 
@@ -76,17 +78,19 @@ navigator.geolocation.getCurrentPosition((position) => {
 
 });
 }
+    const { goTo } = useDashboardNavigation();
+
 
     return (
         <>
            <div className = "page-header">
                 <div className='left'>
-                    <h1 onClick={navigateDashboard}>Bandit Board</h1>
+                    <h1 onClick={() => goTo()}>Bandit Board</h1>
                 </div>
                 <div className='right'>
-                    <h3 onClick={navigateWanted}>wanted</h3>
-                    <h3 onClick={navigateCaught}>caught</h3>
-                    <h3 onClick={navigateMap}>map</h3>
+                    <h3 onClick={() => goTo("/Wanted")}>wanted</h3>
+                    <h3 onClick={() => goTo("/Caught")}>caught</h3>
+                    <h3 onClick={() => goTo("/Map")}>map</h3>
                 </div>
                 <p onClick={() => navigate(`/`)}>Logout</p>
            </div>
