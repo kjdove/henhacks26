@@ -55,14 +55,14 @@ export function Caught() {
                 </div>
                 <div className='right'>
                     <h2 onClick={()=>goTo("/Wanted")}>WANTED</h2>
-                    <h2 onClick={()=>goTo("/Caught")}>CAUGHT</h2>
+                    <h2 className="caught" onClick={()=>goTo("/Caught")}>CAUGHT</h2>
                     <h2 onClick={()=>goTo("/Map")}>MAP</h2>
                 </div>
                 <p onClick={() => navigate(`/`)}>LOGOUT</p>
            </div>
             <div className='caught-content'>
                 <div className='content-header'>
-                    <h2>Caught Bandits</h2>
+                    {/* <h2>Caught Bandits</h2> */}
                     {isSheriff && (
                         <button 
                             className='add-bandit-btn' 

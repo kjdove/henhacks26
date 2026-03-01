@@ -67,7 +67,7 @@ export function Map () {
                 <div className='right'>
                     <h2 onClick={() => goTo("/Wanted")}>WANTED</h2>
                     <h2 onClick={() => goTo("/Caught")}>CAUGHT</h2>
-                    <h2 onClick={() => goTo("/Map")}>MAP</h2>
+                    <h2 className="map" onClick={() => goTo("/Map")}>MAP</h2>
                 </div>
                 <p onClick={() => navigate(`/`)}>LOGOUT</p>
             </div>

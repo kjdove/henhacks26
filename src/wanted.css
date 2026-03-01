@@ -53,3 +53,10 @@
     background-color: #efdac4;
     height: 100%;
 }
+
+.right .wanted {
+    background-color: #b26513;
+    color: #efdac4;
+    padding: 10px;
+    border-radius: 0.5rem;
+}
